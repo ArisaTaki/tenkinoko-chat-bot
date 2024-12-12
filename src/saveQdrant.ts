@@ -17,6 +17,39 @@ export const saveQdrant = async () => {
 
   const client = new QdrantClient({ url: process.env.QDRANT_API_URL });
 
+  const collectionName = "ten_ki_no_ko";
+
+  // 检查是否存在目标 collection
+  const collectionExists = async (
+    client: QdrantClient,
+    collectionName: string
+  ) => {
+    try {
+      await client.getCollection(collectionName);
+      console.log(`Collection "${collectionName}" already exists.`);
+      return true;
+    } catch (error) {
+      if ((error as any)?.status === 404) {
+        console.log(`Collection "${collectionName}" does not exist.`);
+        return false;
+      }
+      throw error;
+    }
+  };
+
+  const exists = await collectionExists(client, collectionName);
+
+  if (exists) {
+    console.log(
+      "Skipping writing to the database since the collection exists."
+    );
+    return;
+  }
+
+  console.log(
+    "Collection does not exist. Proceeding to write to the database."
+  );
+
   const splitDocs = await splitter.splitDocuments(docs);
 
   const embeddings = new OpenAIEmbeddings({
@@ -28,6 +61,8 @@ export const saveQdrant = async () => {
 
   await QdrantVectorStore.fromDocuments(splitDocs, embeddings, {
     client: client,
-    collectionName: "ten_ki_no_ko",
+    collectionName: collectionName,
   });
+
+  console.log("Data has been successfully written to the database.");
 };
