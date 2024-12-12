@@ -6,7 +6,7 @@ const run = async () => {
   const ragChain = await getLastRagChain();
 
   const res = await ragChain.invoke({
-    question: "能否给我简单描述一下这个故事？",
+    question: "东京最后的结局怎么样了？",
   });
   console.log(res);
 };
