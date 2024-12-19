@@ -1,13 +1,21 @@
 import { getLastRagChain } from "./getLastRagChain";
-import { saveQdrant } from "./saveQdrant";
+import { saveMemoryToQdrant } from "./memory/saveMemoryToQdrant";
+import { saveQdrant } from "./db/saveQdrant";
 
 const run = async () => {
   await saveQdrant();
   const ragChain = await getLastRagChain();
 
+  const question = "我的名字叫什么？你会怎么给我推荐这本书？";
+
   const res = await ragChain.invoke({
-    question: "东京最后的结局怎么样了？",
+    question,
   });
+
   console.log(res);
+  await saveMemoryToQdrant({
+    humanMessage: question,
+    aiMessage: res,
+  });
 };
 run();
