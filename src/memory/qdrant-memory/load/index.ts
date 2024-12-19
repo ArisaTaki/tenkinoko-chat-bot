@@ -1,5 +1,5 @@
 // loadMemoryFromQdrant.ts
-import { createMemoryFromQdrant } from "./createMemoryFromQdrant";
+import { createMemoryFromQdrant } from "../create";
 
 export const loadMemoryFromQdrant = async (prompt: string) => {
   const memory = await createMemoryFromQdrant();

@@ -1,7 +1,7 @@
 import { ChatOpenAI } from "@langchain/openai";
 import "dotenv/config";
 
-export const createModel = async () => {
+export const createChatModel = async () => {
   const model = new ChatOpenAI({
     configuration: {
       baseURL: process.env.OPENAI_API_URL,

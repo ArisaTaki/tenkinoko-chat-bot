@@ -1,5 +1,5 @@
 // saveMemoryToQdrant.ts
-import { createMemoryFromQdrant } from "./createMemoryFromQdrant";
+import { createMemoryFromQdrant } from "../create";
 
 export interface Memory {
   humanMessage: string;

@@ -1,10 +1,10 @@
 import { Document } from "@langchain/core/documents";
 import { RunnableSequence } from "@langchain/core/runnables";
-import { loadQdrant } from "./loadQdrant";
+import { loadQdrant } from "../../db/load";
 import { MultiQueryRetriever } from "langchain/retrievers/multi_query";
 import { LLMChainExtractor } from "langchain/retrievers/document_compressors/chain_extract";
 import { ContextualCompressionRetriever } from "langchain/retrievers/contextual_compression";
-import { createModel } from "./createModel";
+import { createChatModel } from "../../model/openai/chat-model";
 
 export const getContextRetrieverChain = async () => {
   const convertDocsToString = (documents: Document[]): string => {
@@ -14,7 +14,7 @@ export const getContextRetrieverChain = async () => {
   const vectorStore = await loadQdrant();
 
   // 这里是模型的创建
-  const model = await createModel();
+  const model = await createChatModel();
 
   // 这里是多次查询的检索器，把用户的输入改成多个不同的写法
   const multiQueryRetriever = MultiQueryRetriever.fromLLM({
