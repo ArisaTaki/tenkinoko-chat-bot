@@ -1,6 +1,6 @@
 import { getLastRagChain } from "./chains/last-rag-chain";
 import { saveMemoryToQdrant } from "./memory/qdrant-memory/save";
-import { saveQdrant } from "./db/save";
+import { saveQdrant } from "./db/saveQdrant";
 import { saveShortTermMemory } from "./memory/short-term-memory";
 
 const run = async () => {
