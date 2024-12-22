@@ -1,6 +1,7 @@
 import { parseJudgmentResult, isImportantMessage } from "../../../helper";
 import { getMemoryJudgmentChain } from "../../../chains/memory-judgment-chain";
 import { createMemoryFromQdrant } from "../create";
+import { getConversationSummaryChain } from "../../../chains/conversation-summary-chain";
 
 export interface Memory {
   humanMessage: string;
@@ -28,10 +29,16 @@ export const saveMemoryToQdrantWithFilter = async (messages: Memory) => {
 
     // 判断是否需要存入长期记忆
     if (result.important) {
+      const summaryChain = await getConversationSummaryChain();
+      const summaryRes = await summaryChain.invoke({
+        humanMessage: messages.humanMessage,
+        aiMessage: messages.aiMessage,
+      });
+      const summary = summaryRes.match(/对话摘要：(.*)/)?.[1]?.trim();
       const memory = await createMemoryFromQdrant();
       await memory.saveContext(
-        { input: messages.humanMessage },
-        { output: messages.aiMessage }
+        { summary: summary },
+        { aiMessage: messages.aiMessage }
       );
       console.log("重要对话已存入长期记忆。原因：", result.reason);
     } else {

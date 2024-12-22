@@ -7,7 +7,7 @@ const run = async () => {
   await saveQdrant();
   const ragChain = await getLastRagChain();
 
-  const question = "你好";
+  const question = "你好，我是八六";
 
   const res = await ragChain.invoke({
     question,
