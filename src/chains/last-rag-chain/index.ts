@@ -3,7 +3,7 @@ import { RunnableSequence } from "@langchain/core/runnables";
 import { getContextRetrieverChain } from "../context-retriever-chain";
 import { createTemplate } from "../../prompt-template/answer-template";
 import { getMemoryRetrieverChain } from "../memory-retriever-chain";
-import { getShortTermMemoryChain } from "../../memory/short-term-memory";
+import { getShortTermMemoryRetrieverChain } from "../short-term-memory-retriever-chain";
 import { createChatModel } from "../../model/openai/chat-model";
 
 export const getLastRagChain = async () => {
@@ -13,7 +13,7 @@ export const getLastRagChain = async () => {
 
   const memoryRetrieverChain = await getMemoryRetrieverChain();
 
-  const shortTermMemory = await getShortTermMemoryChain();
+  const shortTermMemory = await getShortTermMemoryRetrieverChain();
 
   const prompt = createTemplate();
 

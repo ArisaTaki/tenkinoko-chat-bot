@@ -1,4 +1,3 @@
-import { RunnableSequence } from "@langchain/core/runnables";
 import { Memory } from "../qdrant-memory/save";
 
 let recentMessages: Memory[] = [];
@@ -13,12 +12,8 @@ export const saveShortTermMemory = (
   recentMessages.push({ humanMessage, aiMessage });
 };
 
-const getShortTermMemory = async () => {
+export const getShortTermMemory = async () => {
   return recentMessages
     .map((msg) => `Human: ${msg.humanMessage}\nAI: ${msg.aiMessage}`)
     .join("\n");
-};
-
-export const getShortTermMemoryChain = async () => {
-  return RunnableSequence.from([() => {}, getShortTermMemory]);
 };
