@@ -1,10 +1,10 @@
 import { Document } from "@langchain/core/documents";
 import { RunnableSequence } from "@langchain/core/runnables";
+import { loadQdrant } from "../../db/loadQdrant";
 import { MultiQueryRetriever } from "langchain/retrievers/multi_query";
 import { LLMChainExtractor } from "langchain/retrievers/document_compressors/chain_extract";
 import { ContextualCompressionRetriever } from "langchain/retrievers/contextual_compression";
-import { loadQdrant } from "@/db/loadQdrant";
-import { createChatModel } from "@/model/openai/chat-model";
+import { createChatModel } from "../../model/openai/chat-model";
 
 export const getContextRetrieverChain = async () => {
   const convertDocsToString = (documents: Document[]): string => {
