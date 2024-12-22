@@ -12,6 +12,8 @@ export const saveShortTermMemory = (
   recentMessages.push({ humanMessage, aiMessage });
 };
 
+console.log(recentMessages);
+
 export const getShortTermMemory = async () => {
   return recentMessages
     .map((msg) => `Human: ${msg.humanMessage}\nAI: ${msg.aiMessage}`)

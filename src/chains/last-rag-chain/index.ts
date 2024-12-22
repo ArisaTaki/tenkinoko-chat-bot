@@ -1,7 +1,7 @@
 import { StringOutputParser } from "@langchain/core/output_parsers";
 import { RunnableSequence } from "@langchain/core/runnables";
 import { getContextRetrieverChain } from "../context-retriever-chain";
-import { createTemplate } from "../../prompt-template/answer-template";
+import { createAnswerTemplate } from "../../prompt-template/answer-template";
 import { getMemoryRetrieverChain } from "../memory-retriever-chain";
 import { getShortTermMemoryRetrieverChain } from "../short-term-memory-retriever-chain";
 import { createChatModel } from "../../model/openai/chat-model";
@@ -15,14 +15,14 @@ export const getLastRagChain = async () => {
 
   const shortTermMemory = await getShortTermMemoryRetrieverChain();
 
-  const prompt = createTemplate();
+  const prompt = createAnswerTemplate();
 
   const ragChain = RunnableSequence.from([
     {
+      question: (input) => input.question,
       context: contextRetrieverChain,
       short_term_memory: shortTermMemory,
       chat_history: memoryRetrieverChain,
-      question: (input) => input.question,
     },
     prompt,
     model,

@@ -7,13 +7,11 @@ const run = async () => {
   await saveQdrant();
   const ragChain = await getLastRagChain();
 
-  const question = "我的名字叫什么？你会怎么给我推荐这本书？";
+  const question = "你好，我的名字是？";
 
   const res = await ragChain.invoke({
     question,
   });
-
-  console.log(res);
 
   saveShortTermMemory(question, res);
 
