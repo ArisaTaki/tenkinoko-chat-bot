@@ -2,8 +2,7 @@
 import { VectorStoreRetrieverMemory } from "langchain/memory";
 import { QdrantVectorStore } from "@langchain/qdrant";
 import { QdrantClient } from "@qdrant/js-client-rest";
-import { createEmbeddingsModel } from "../../../model/openai/embeddings-model";
-
+import { createEmbeddingsModel } from "@/model/openai/embeddings-model";
 import "dotenv/config";
 
 export const createMemoryFromQdrant = async () => {

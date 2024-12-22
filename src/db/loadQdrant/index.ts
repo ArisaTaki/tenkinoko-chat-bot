@@ -1,7 +1,7 @@
+import { createEmbeddingsModel } from "@/model/openai/embeddings-model";
 import { QdrantVectorStore } from "@langchain/qdrant";
 import { QdrantClient } from "@qdrant/js-client-rest";
 import "dotenv/config";
-import { createEmbeddingsModel } from "../../model/openai/embeddings-model";
 
 export const loadQdrant = async () => {
   const client = new QdrantClient({ url: process.env.QDRANT_API_URL });

@@ -2,8 +2,7 @@ import { QdrantClient } from "@qdrant/js-client-rest";
 import { TextLoader } from "langchain/document_loaders/fs/text";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { QdrantVectorStore } from "@langchain/qdrant";
-import { createEmbeddingsModel } from "../../model/openai/embeddings-model";
-
+import { createEmbeddingsModel } from "@/model/openai/embeddings-model";
 import "dotenv/config";
 
 export const saveQdrant = async () => {

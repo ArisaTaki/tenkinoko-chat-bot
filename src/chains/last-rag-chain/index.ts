@@ -1,10 +1,10 @@
+import { createChatModel } from "@/model/openai/chat-model";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 import { RunnableSequence } from "@langchain/core/runnables";
 import { getContextRetrieverChain } from "../context-retriever-chain";
-import { createAnswerTemplate } from "../../prompt-template/answer-template";
 import { getMemoryRetrieverChain } from "../memory-retriever-chain";
 import { getShortTermMemoryRetrieverChain } from "../short-term-memory-retriever-chain";
-import { createChatModel } from "../../model/openai/chat-model";
+import { createAnswerTemplate } from "@/prompt-template/answer-template";
 
 export const getLastRagChain = async () => {
   const model = await createChatModel();

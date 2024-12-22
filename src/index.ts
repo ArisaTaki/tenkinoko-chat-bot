@@ -1,7 +1,7 @@
-import { getLastRagChain } from "./chains/last-rag-chain";
-import { saveMemoryToQdrant } from "./memory/qdrant-memory/save";
-import { saveQdrant } from "./db/saveQdrant";
-import { saveShortTermMemory } from "./memory/short-term-memory";
+import { saveShortTermMemory } from "./memory/short-term-memory/index";
+import { getLastRagChain } from "@/chains/last-rag-chain";
+import { saveMemoryToQdrant } from "@/memory/qdrant-memory/save";
+import { saveQdrant } from "@/db/saveQdrant";
 
 const run = async () => {
   await saveQdrant();
@@ -12,6 +12,8 @@ const run = async () => {
   const res = await ragChain.invoke({
     question,
   });
+
+  console.log(res);
 
   saveShortTermMemory(question, res);
 
