@@ -1,2 +1,3 @@
 node_modules
-src/memory/short-term-memory/short-term-memory.json
+src/memory/short-term-memory/*.json
+.env

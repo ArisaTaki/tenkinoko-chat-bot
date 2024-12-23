@@ -33,7 +33,7 @@ export const getContextRetrieverChain = async () => {
   });
 
   const contextRetrieverChain = RunnableSequence.from([
-    (input) => input.question,
+    (input) => input,
     compressionRetriever,
     convertDocsToString,
   ]);

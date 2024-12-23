@@ -2,12 +2,13 @@ import * as fs from "fs";
 import * as path from "path";
 import { Memory } from "../qdrant-memory/save";
 
-const filePath = path.resolve(__dirname, "./short-term-memory.json");
-
 export const saveShortTermMemory = (
   humanMessage: string,
-  aiMessage: string
+  aiMessage: string,
+  uuidv4: string
 ) => {
+  const filePath = path.resolve(__dirname, `./${uuidv4}.json`);
+
   let recentMessages: Memory[] = [];
   if (fs.existsSync(filePath)) {
     const data = fs.readFileSync(filePath, "utf-8");
@@ -22,7 +23,8 @@ export const saveShortTermMemory = (
   fs.writeFileSync(filePath, JSON.stringify(recentMessages, null, 2), "utf-8");
 };
 
-export const getShortTermMemory = async () => {
+export const getShortTermMemory = async (uuidv4: string) => {
+  const filePath = path.resolve(__dirname, `./${uuidv4}.json`);
   if (fs.existsSync(filePath)) {
     const data = fs.readFileSync(filePath, "utf-8");
     return JSON.parse(data).map(

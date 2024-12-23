@@ -8,7 +8,10 @@ export interface Memory {
   aiMessage: string;
 }
 
-export const saveMemoryToQdrantWithFilter = async (messages: Memory) => {
+export const saveMemoryToQdrantWithFilter = async (
+  messages: Memory,
+  uuidv4: string
+) => {
   const judgmentChain = await getMemoryJudgmentChain();
 
   if (!isImportantMessage(messages.humanMessage)) {
@@ -35,7 +38,7 @@ export const saveMemoryToQdrantWithFilter = async (messages: Memory) => {
         aiMessage: messages.aiMessage,
       });
       const summary = summaryRes.match(/对话摘要：(.*)/)?.[1]?.trim();
-      const memory = await createMemoryFromQdrant();
+      const memory = await createMemoryFromQdrant(uuidv4);
       await memory.saveContext(
         { summary: summary },
         { aiMessage: messages.aiMessage }
