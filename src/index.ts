@@ -4,11 +4,9 @@ import { saveQdrant } from "./db/saveQdrant";
 import { saveShortTermMemory } from "./memory/short-term-memory";
 import { ruleBasedResponse } from "./pre-defined-res";
 
-const run = async (uuidv4: string) => {
+export const runRAG = async (uuidv4: string, question: string) => {
   await saveQdrant();
   const ragChain = await getLastRagChain(uuidv4);
-
-  const question = "介绍他们俩的故事";
 
   // Step 1: 规则引擎优先响应
   const ruleResponse = ruleBasedResponse(question);
@@ -22,9 +20,7 @@ const run = async (uuidv4: string) => {
     question,
   });
 
-  console.log(res);
-
-  saveShortTermMemory(question, res, uuidv4);
+  await saveShortTermMemory(question, res, uuidv4);
 
   await saveMemoryToQdrantWithFilter(
     {
@@ -33,6 +29,6 @@ const run = async (uuidv4: string) => {
     },
     uuidv4
   );
+
+  return res;
 };
-// 从前端传过来的uuid字符串，现在先模拟一下
-run("9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6f");
