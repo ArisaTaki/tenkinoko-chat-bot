@@ -8,7 +8,7 @@ const run = async (uuidv4: string) => {
   await saveQdrant();
   const ragChain = await getLastRagChain(uuidv4);
 
-  const question = "你好，我是八六，请记住我的名字";
+  const question = "介绍他们俩的故事";
 
   // Step 1: 规则引擎优先响应
   const ruleResponse = ruleBasedResponse(question);

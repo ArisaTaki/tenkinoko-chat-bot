@@ -24,12 +24,19 @@ export const getLastRagChain = async (uuidv4: string) => {
   const prompt = createAnswerTemplate();
 
   const ragChain = RunnableSequence.from([
-    (input) => input.question,
+    (input) => ({ question: input.question }), // 将输入映射为对象
     RunnablePassthrough.assign({
       standalone_question: rephraseChain,
-      context: contextRetrieverChain,
-      short_term_memory: shortTermMemoryChain,
-      chat_history: memoryRetrieverChain,
+    }),
+    async (output) => ({
+      standalone_question: output.standalone_question,
+      context: await contextRetrieverChain.invoke(output.standalone_question), // 将 standalone_question 传递给 contextRetrieverChain
+      short_term_memory: await shortTermMemoryChain.invoke(
+        output.standalone_question
+      ),
+      chat_history: await memoryRetrieverChain.invoke(
+        output.standalone_question
+      ),
     }),
     prompt,
     model,
