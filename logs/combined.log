@@ -1,3 +1,100 @@
 {"level":"info","message":"服务器已在 http://localhost:9000 启动","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:18:22"}
 {"level":"info","message":"服务器已在 http://localhost:9000 启动","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:18:49"}
 {"cause":{"address":"::1","code":"ECONNREFUSED","errno":-61,"port":6333,"syscall":"connect"},"level":"error","message":"RAG处理过程中出错: fetch failed","service":"tenkinoko-chat-bot","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12618:11\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async fetchJson (/Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/openapi-typescript-fetch/dist/cjs/fetcher.js:135:22)\n    at async /Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/js-client-rest/dist/cjs/api-client.js:46:26\n    at async handler (/Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/openapi-typescript-fetch/dist/cjs/fetcher.js:156:16)\n    at async /Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/js-client-rest/dist/cjs/api-client.js:32:24\n    at async handler (/Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/openapi-typescript-fetch/dist/cjs/fetcher.js:156:16)\n    at async fetchUrl (/Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/openapi-typescript-fetch/dist/cjs/fetcher.js:162:22)\n    at async Object.fun [as getCollection] (/Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/openapi-typescript-fetch/dist/cjs/fetcher.js:168:20)\n    at async QdrantClient.getCollection (/Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/js-client-rest/dist/cjs/qdrant-client.js:846:26)","timestamp":"2025-02-27 11:19:36"}
+{"cause":{"address":"::1","code":"ECONNREFUSED","errno":-61,"port":6333,"syscall":"connect"},"level":"error","message":"RAG处理过程中出错: fetch failed","service":"tenkinoko-chat-bot","stack":"TypeError: fetch failed\n    at node:internal/deps/undici/undici:12618:11\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async fetchJson (/Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/openapi-typescript-fetch/dist/cjs/fetcher.js:135:22)\n    at async /Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/js-client-rest/dist/cjs/api-client.js:46:26\n    at async handler (/Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/openapi-typescript-fetch/dist/cjs/fetcher.js:156:16)\n    at async /Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/js-client-rest/dist/cjs/api-client.js:32:24\n    at async handler (/Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/openapi-typescript-fetch/dist/cjs/fetcher.js:156:16)\n    at async fetchUrl (/Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/openapi-typescript-fetch/dist/cjs/fetcher.js:162:22)\n    at async Object.fun [as getCollection] (/Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/openapi-typescript-fetch/dist/cjs/fetcher.js:168:20)\n    at async QdrantClient.getCollection (/Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/@qdrant/js-client-rest/dist/cjs/qdrant-client.js:846:26)","timestamp":"2025-02-27 11:27:21"}
+{"level":"info","message":"正在测试外部API连接...","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:30:39"}
+{"level":"error","message":"OpenAI API连接失败: HTTP 401 - {\"error\":{\"message\":\"令牌验证失败 (request id: 202502270330413647438346573308)\",\"type\":\"one_api_error\"}}","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:30:44"}
+{"code":"ECONNREFUSED","errno":"ECONNREFUSED","level":"error","message":"request to http://localhost:6333//collections failed, reason: connect ECONNREFUSED ::1:6333","service":"tenkinoko-chat-bot","stack":"FetchError: request to http://localhost:6333//collections failed, reason: connect ECONNREFUSED ::1:6333\n    at ClientRequest.<anonymous> (/Users/hacchiroku/学习相关/LangChain/tenkinoko-chat-bot/node_modules/node-fetch/lib/index.js:1501:11)\n    at ClientRequest.emit (node:events:517:28)\n    at ClientRequest.emit (node:domain:489:12)\n    at Socket.socketErrorListener (node:_http_client:501:9)\n    at Socket.emit (node:events:517:28)\n    at Socket.emit (node:domain:489:12)\n    at emitErrorNT (node:internal/streams/destroy:151:8)\n    at emitErrorCloseNT (node:internal/streams/destroy:116:3)\n    at processTicksAndRejections (node:internal/process/task_queues:82:21)","timestamp":"2025-02-27 11:30:44","type":"system"}
+{"level":"info","message":"正在测试外部API连接...","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:31:46"}
+{"level":"info","message":"OpenAI API连接测试成功","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:31:48"}
+{"level":"error","message":"Qdrant API连接失败: HTTP 404 - ","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:31:48"}
+{"level":"info","message":"API连接测试结果:","openai":"正常","qdrant":"异常","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:31:48"}
+{"level":"info","message":"服务器已在 http://localhost:9000 启动","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:31:48"}
+{"level":"info","message":"健康检查: http://localhost:9000/health","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:31:48"}
+{"level":"info","message":"外部API连接状态:","openai":"正常","qdrant":"异常","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:31:48"}
+{"level":"warn","message":"部分外部API连接异常，系统功能可能受限","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:31:48"}
+{"level":"info","message":"收到请求: GET /health","requestId":"1740627124328","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:04"}
+{"level":"info","message":"OpenAI API连接测试成功","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:05"}
+{"level":"error","message":"Qdrant API连接失败: HTTP 404 - ","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:05"}
+{"level":"info","message":"API连接测试结果:","openai":"正常","qdrant":"异常","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:05"}
+{"level":"info","message":"收到请求: POST /api/run-rag","requestId":"1740627125448","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:05"}
+{"level":"info","message":"处理RAG请求 [1740627125448]","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:05"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:05"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:05"}
+{"level":"debug","message":"已获取短期内存: test, 记忆条数: 6","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:05"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:05"}
+{"level":"debug","message":"规则引擎没有匹配: \"我的名字是？\"","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:05"}
+{"level":"debug","message":"已获取短期内存: test, 记忆条数: 6","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:17"}
+{"level":"debug","message":"响应数据块已发送 [1740627125448]: 0 字节","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:19"}
+{"level":"info","message":"响应已完成 [1740627125448]","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:19"}
+{"level":"debug","message":"短期内存已保存: test, 当前记忆条数: 6","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:19"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:32:19"}
+{"level":"info","message":"收到请求: GET /health","requestId":"1740627191032","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:11"}
+{"level":"info","message":"OpenAI API连接测试成功","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:12"}
+{"level":"error","message":"Qdrant API连接失败: HTTP 404 - ","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:12"}
+{"level":"info","message":"API连接测试结果:","openai":"正常","qdrant":"异常","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:12"}
+{"level":"info","message":"收到请求: POST /api/run-rag","requestId":"1740627192090","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:12"}
+{"level":"info","message":"处理RAG请求 [1740627192090]","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:12"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:12"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:12"}
+{"level":"debug","message":"已获取短期内存: test, 记忆条数: 6","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:12"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:12"}
+{"level":"debug","message":"规则引擎没有匹配: \"你是做什么的？\"","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:12"}
+{"level":"debug","message":"已获取短期内存: test, 记忆条数: 6","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:22"}
+{"level":"debug","message":"响应数据块已发送 [1740627192090]: 0 字节","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:25"}
+{"level":"info","message":"响应已完成 [1740627192090]","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:25"}
+{"level":"debug","message":"短期内存已保存: test, 当前记忆条数: 6","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:25"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:33:25"}
+{"level":"info","message":"正在测试外部API连接...","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:36:33"}
+{"level":"info","message":"OpenAI API连接测试成功","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:36:34"}
+{"level":"error","message":"Qdrant API连接失败: HTTP 404 - ","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:36:34"}
+{"level":"info","message":"API连接测试结果:","openai":"正常","qdrant":"异常","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:36:34"}
+{"level":"info","message":"服务器已在 http://localhost:9000 启动","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:36:34"}
+{"level":"info","message":"健康检查: http://localhost:9000/health","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:36:34"}
+{"level":"info","message":"外部API连接状态:","openai":"正常","qdrant":"异常","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:36:34"}
+{"level":"warn","message":"部分外部API连接异常，系统功能可能受限","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:36:34"}
+{"level":"info","message":"正在测试外部API连接...","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:37:03"}
+{"level":"info","message":"OpenAI API连接测试成功","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:37:04"}
+{"level":"error","message":"Qdrant API连接失败: HTTP 404 - ","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:37:04"}
+{"level":"info","message":"API连接测试结果:","openai":"正常","qdrant":"异常","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:37:04"}
+{"level":"info","message":"服务器已在 http://localhost:9000 启动","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:37:04"}
+{"level":"info","message":"健康检查: http://localhost:9000/health","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:37:04"}
+{"level":"info","message":"外部API连接状态:","openai":"正常","qdrant":"异常","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:37:04"}
+{"level":"warn","message":"部分外部API连接异常，系统功能可能受限","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:37:04"}
+{"level":"info","message":"正在测试外部API连接...","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:02"}
+{"level":"info","message":"OpenAI API连接测试成功","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:03"}
+{"level":"info","message":"Qdrant API连接测试成功","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:03"}
+{"level":"info","message":"API连接测试结果:","openai":"正常","qdrant":"正常","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:03"}
+{"level":"info","message":"服务器已在 http://localhost:9000 启动","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:03"}
+{"level":"info","message":"健康检查: http://localhost:9000/health","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:03"}
+{"level":"info","message":"外部API连接状态:","openai":"正常","qdrant":"正常","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:03"}
+{"level":"info","message":"收到请求: GET /health","requestId":"1740627551102","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:11"}
+{"level":"info","message":"OpenAI API连接测试成功","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:12"}
+{"level":"info","message":"Qdrant API连接测试成功","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:12"}
+{"level":"info","message":"API连接测试结果:","openai":"正常","qdrant":"正常","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:12"}
+{"level":"info","message":"收到请求: POST /api/run-rag","requestId":"1740627552250","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:12"}
+{"level":"info","message":"处理RAG请求 [1740627552250]","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:12"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:12"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:12"}
+{"level":"debug","message":"已获取短期内存: test, 记忆条数: 6","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:12"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:12"}
+{"level":"debug","message":"规则引擎没有匹配: \"你是做什么的？\"","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:12"}
+{"level":"debug","message":"已获取短期内存: test, 记忆条数: 6","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:24"}
+{"level":"info","message":"响应已完成 [1740627552250]","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:27"}
+{"level":"debug","message":"短期内存已保存: test, 当前记忆条数: 6","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:27"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:39:27"}
+{"level":"info","message":"收到请求: GET /health","requestId":"1740627667530","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:07"}
+{"level":"info","message":"OpenAI API连接测试成功","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:08"}
+{"level":"info","message":"Qdrant API连接测试成功","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:08"}
+{"level":"info","message":"API连接测试结果:","openai":"正常","qdrant":"正常","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:08"}
+{"level":"info","message":"收到请求: POST /api/run-rag","requestId":"1740627668504","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:08"}
+{"level":"info","message":"处理RAG请求 [1740627668504]","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:08"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:08"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:08"}
+{"level":"debug","message":"已获取短期内存: test, 记忆条数: 6","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:08"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:08"}
+{"level":"debug","message":"规则引擎没有匹配: \"你是做什么的？\"","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:08"}
+{"level":"debug","message":"已获取短期内存: test, 记忆条数: 6","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:21"}
+{"level":"info","message":"响应已完成 [1740627668504]","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:28"}
+{"level":"debug","message":"短期内存已保存: test, 当前记忆条数: 6","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:28"}
+{"level":"debug","message":"创建聊天模型: gpt-4o-mini","service":"tenkinoko-chat-bot","timestamp":"2025-02-27 11:41:28"}
