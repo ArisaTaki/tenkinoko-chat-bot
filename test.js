@@ -1,4 +1,4 @@
-const port = 3000;
+const port = 9000;
 
 async function fetchStream() {
   const response = await fetch(`http://localhost:${port}/api/run-rag`, {
